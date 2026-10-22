@@ -1,0 +1,15 @@
+{
+  "name": "zerodha-clone-fullstack",
+  "version": "1.0.0",
+  "description": "Full stack Zerodha Clone with Landing Page, Kite Dashboard, and Backend REST API",
+  "main": "run-all.js",
+  "scripts": {
+    "start": "node run-all.js",
+    "backend": "node backend/index.js",
+    "dashboard": "npm --prefix dashboard start",
+    "frontend": "npm --prefix frontend start"
+  },
+  "keywords": ["zerodha", "react", "express", "trading", "kite"],
+  "author": "Lalit Hadkar (https://github.com/Lalit05Hadkar)",
+  "license": "MIT"
+}
