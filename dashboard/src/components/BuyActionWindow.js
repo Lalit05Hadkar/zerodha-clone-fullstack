@@ -7,9 +7,11 @@ import { API_BASE_URL } from "../config";
 import "./BuyActionWindow.css";
 
 const BuyActionWindow = ({ uid, mode = "BUY" }) => {
-  const stockItem = watchlist.find((s) => s.name === uid) || { price: 100.0 };
   const [stockQuantity, setStockQuantity] = useState(1);
-  const [stockPrice, setStockPrice] = useState(stockItem.price || 100.0);
+  const [stockPrice, setStockPrice] = useState(() => {
+    const item = watchlist.find((s) => s.name === uid);
+    return item ? item.price : 100.0;
+  });
   const [orderType, setOrderType] = useState("LIMIT"); // MARKET or LIMIT
   const [productType, setProductType] = useState("CNC"); // CNC or MIS
   const [statusMessage, setStatusMessage] = useState("");
@@ -17,10 +19,11 @@ const BuyActionWindow = ({ uid, mode = "BUY" }) => {
   const { closeBuyWindow, triggerRefresh } = useContext(GeneralContext);
 
   useEffect(() => {
-    if (stockItem && stockItem.price) {
-      setStockPrice(stockItem.price);
+    const item = watchlist.find((s) => s.name === uid);
+    if (item && item.price) {
+      setStockPrice(item.price);
     }
-  }, [uid, stockItem]);
+  }, [uid]);
 
   const isBuy = mode === "BUY";
   const headerBg = isBuy ? "#4184f3" : "#ff5722";
