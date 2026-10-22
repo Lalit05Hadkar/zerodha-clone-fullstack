@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { DASHBOARD_URL } from "../../config";
 
 function Signup() {
   const [name, setName] = useState("");
@@ -187,7 +188,7 @@ function Signup() {
                 <span className="fs-3 fw-bold text-dark">{assignedId}</span>
               </div>
               <a
-                href="http://localhost:3001"
+                href={DASHBOARD_URL}
                 className="btn btn-primary w-100 p-2 fs-5 mt-2"
                 style={{ backgroundColor: "#387ed1", borderColor: "#387ed1" }}
               >

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { DASHBOARD_URL } from "../config";
 
 function Navbar() {
   return (
@@ -56,7 +57,7 @@ function Navbar() {
             <li className="nav-item ms-lg-3">
               <a
                 className="btn btn-primary px-3 py-1"
-                href="http://localhost:3001"
+                href={DASHBOARD_URL}
                 target="_blank"
                 rel="noreferrer"
                 style={{ backgroundColor: "#387ed1", borderColor: "#387ed1" }}

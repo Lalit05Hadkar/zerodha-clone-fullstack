@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
+import { API_BASE_URL } from "../config";
 
 const Orders = () => {
   const [allOrders, setAllOrders] = useState([]);
@@ -9,7 +10,7 @@ const Orders = () => {
 
   const fetchOrders = () => {
     axios
-      .get("http://localhost:3002/allOrders")
+      .get(`${API_BASE_URL}/allOrders`)
       .then((res) => {
         if (res.data) {
           setAllOrders(res.data);

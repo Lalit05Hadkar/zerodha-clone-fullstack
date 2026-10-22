@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import Universe from "./Universe";
+import { DASHBOARD_URL } from "../../config";
 
 function ProductsPage() {
   return (
@@ -13,7 +14,7 @@ function ProductsPage() {
         imageURL="media/images/kite.png"
         productName="Kite"
         productDesription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices."
-        tryDemo="http://localhost:3001"
+        tryDemo={DASHBOARD_URL}
         learnMore="#"
         googlePlay="https://play.google.com/store/apps/details?id=com.zerodha.kite3"
         appStore="https://apps.apple.com/in/app/zerodha-kite-trade-invest/id1449453802"
@@ -28,7 +29,7 @@ function ProductsPage() {
         imageURL="media/images/coin.png"
         productName="Coin"
         productDesription="Buy direct mutual funds online, commission-free, delivered directly to your Demat account. Enjoy the investment experience on your Android and iOS devices."
-        tryDemo="http://localhost:3001/funds"
+        tryDemo={`${DASHBOARD_URL}/funds`}
         learnMore="#"
         googlePlay="https://play.google.com/store/apps/details?id=com.zerodha.coin"
         appStore="https://apps.apple.com/in/app/zerodha-coin/id1392892593"

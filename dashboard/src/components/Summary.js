@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
 import { holdings as defaultHoldings } from "../data/data";
+import { API_BASE_URL } from "../config";
 
 const Summary = () => {
   const [userName, setUserName] = useState("Trader");
@@ -17,7 +18,7 @@ const Summary = () => {
   useEffect(() => {
     // 1. Fetch user
     axios
-      .get("http://localhost:3002/user")
+      .get(`${API_BASE_URL}/user`)
       .then((res) => {
         if (res.data && res.data.name) setUserName(res.data.name);
       })
@@ -25,7 +26,7 @@ const Summary = () => {
 
     // 2. Fetch funds
     axios
-      .get("http://localhost:3002/funds")
+      .get(`${API_BASE_URL}/funds`)
       .then((res) => {
         if (res.data) setFunds(res.data);
       })
@@ -33,7 +34,7 @@ const Summary = () => {
 
     // 3. Fetch holdings
     axios
-      .get("http://localhost:3002/allHoldings")
+      .get(`${API_BASE_URL}/allHoldings`)
       .then((res) => {
         if (res.data && res.data.length > 0) {
           setHoldingsData(res.data);

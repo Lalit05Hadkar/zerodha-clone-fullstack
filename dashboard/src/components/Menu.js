@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FRONTEND_URL } from "../config";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -140,7 +141,7 @@ const Menu = () => {
               <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                 <li>
                   <a
-                    href="http://localhost:3000"
+                    href={FRONTEND_URL}
                     target="_blank"
                     rel="noreferrer"
                     style={{

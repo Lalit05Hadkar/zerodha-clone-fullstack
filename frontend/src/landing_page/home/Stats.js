@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { DASHBOARD_URL } from "../../config";
 
 function Stats() {
   return (
@@ -37,7 +38,7 @@ function Stats() {
               <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
             </Link>
             <a
-              href="http://localhost:3001"
+              href={DASHBOARD_URL}
               target="_blank"
               rel="noreferrer"
               className="text-decoration-none"

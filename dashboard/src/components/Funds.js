@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
+import { API_BASE_URL } from "../config";
 
 const Funds = () => {
   const [funds, setFunds] = useState({
@@ -27,7 +28,7 @@ const Funds = () => {
 
   const fetchFunds = () => {
     axios
-      .get("http://localhost:3002/funds")
+      .get(`${API_BASE_URL}/funds`)
       .then((res) => {
         if (res.data) setFunds(res.data);
       })
@@ -42,7 +43,7 @@ const Funds = () => {
     e.preventDefault();
     if (amountInput > 0) {
       axios
-        .post("http://localhost:3002/addFunds", { amount: Number(amountInput) })
+        .post(`${API_BASE_URL}/addFunds`, { amount: Number(amountInput) })
         .then((res) => {
           if (res.data.funds) setFunds(res.data.funds);
           setToastMessage(`₹${amountInput} deposited successfully via UPI!`);
@@ -65,7 +66,7 @@ const Funds = () => {
     e.preventDefault();
     if (amountInput > 0 && amountInput <= funds.availableCash) {
       axios
-        .post("http://localhost:3002/withdrawFunds", { amount: Number(amountInput) })
+        .post(`${API_BASE_URL}/withdrawFunds`, { amount: Number(amountInput) })
         .then((res) => {
           if (res.data.funds) setFunds(res.data.funds);
           setToastMessage(`₹${amountInput} withdrawal initiated to linked bank account!`);
